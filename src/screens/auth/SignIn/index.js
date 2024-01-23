@@ -7,7 +7,14 @@ import Button from '../../../components/Button';
 import Seperator from '../../../components/Seperator';
 import GoogleLogin from '../../../components/GoogleLogin';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
+    const onSignUp = () => {
+        navigation.navigate('SignUp');
+    };
+
+    const onBack = () => {
+        navigation.goBack();
+    }
     return (
         <View style= {styles.container}>
             <AuthHeader title="Sign In" />
@@ -18,6 +25,10 @@ const SignIn = () => {
             <GoogleLogin></GoogleLogin>
             <Text style={styles.footerText}>
                 Don't have an account?Sign Up
+                <Text onPress={onSignUp} style={styles.footerLink}>
+                    {' '}
+                    Sign Up
+                </Text>
                 </Text>
         </View>
     );
