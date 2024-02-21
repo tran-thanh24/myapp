@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Text, Image, View, Pressable} from 'react-native';
 import {styles} from './styles';
 import AuthHeader from '../../../components/AuthHeader';
@@ -6,8 +6,12 @@ import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import Seperator from '../../../components/Seperator';
 import GoogleLogin from '../../../components/GoogleLogin';
-
+import { useRoute } from '@react-navigation/native';
 const SignIn = ({navigation}) => {
+    const route =  useRoute();
+    const [email,setEmail] = useState('');
+    const [pass,setPass] = useState('');
+     const data = route.params?.data;
     const onSignUp = () => {
         navigation.navigate('SignUp');
     };
@@ -18,13 +22,16 @@ const SignIn = ({navigation}) => {
     return (
         <View style= {styles.container}>
             <AuthHeader title="Sign In" />
-            <Input label="Email" placeholder="example@gmail.com"/>
-            <Input isPassword label="Password" placeholder="*********"/>
-            <Button style={styles.button} title="Sign In"></Button>
+            <Input label="Email" placeholder="example@gmail.com" changeText={setEmail} />
+            <Input isPassword label="Password" placeholder="*********"  changeText={setPass}/>
+            <Button style={styles.button} title="Sign In" onPress={() => {
+                console.log(data);
+            return   data.email === email & data.pass === pass ? alert('Login Success') : alert('login Error');
+            }}></Button>
             <Seperator text="Or sign up with"></Seperator>
             <GoogleLogin></GoogleLogin>
             <Text style={styles.footerText}>
-                Don't have an account?Sign Up
+                Don't have an account?
                 <Text onPress={onSignUp} style={styles.footerLink}>
                     {' '}
                     Sign Up
