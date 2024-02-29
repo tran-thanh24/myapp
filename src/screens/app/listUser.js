@@ -82,55 +82,55 @@ const ListUser = ({navigation}) => {
         </ScrollView>
     );
 };
-    const UpdateModal = props => {
-        const [name, setName] = useState(undefined);
-        const [birthday, setBirthday] = useState(undefined);
-        useEffect(() => {
-            if (props.selectedUser) {
-                setName(props.selectedUser.name);
-                setBirthday(props.selectedUser.birthday);
-            }
-        }, [props.selecttedUser]);
-        const updateUser = async () => {
-            const url = 'http://192.168.1.5:3000/users';
-            const id = props.selectedUser.id;
-            let result = await fetch(`${url}/${id}`, {
-                method: 'Put',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, birthday }),
-            });
-            result = await result.json();
-            if (result) {
-                props.getAPI();
-                props.setOpenDialog(false);
-            }
-        };
-        return (
-            <View style={styles.modelContent}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter name"
-                    value={name}
-                    onChangeText={text => setName(text)}></TextInput>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter birthday"
-                    value={birthday}
-                    onChangeText={text => setBirthday(text)}> </TextInput>
-    
-                <View style={styles.buttonGroup}>
-                    <TouchableOpacity style={styles.button} onPress={updateUser}>
-                        <Text style={styles.buttonText}>Update</Text>
-                    </TouchableOpacity>
-    
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText} onPress={() => props.setOpenDialog(false)}>Close</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        );
+const UpdateModal = props => {
+    const [name, setName] = useState(undefined);
+    const [birthday, setBirthday] = useState(undefined);
+    useEffect(() => {
+        if (props.selectedUser) {
+            setName(props.selectedUser.name);
+            setBirthday(props.selectedUser.birthday);
+        }
+    }, [props.selectedUser]);
+    const updateUser = async () => {
+        const url = 'http://172.16.55.195:3000/user';
+        const id = props.selectedUser.id;
+        let result = await fetch(`${url}/${id}`, {
+            method: 'Put',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, birthday }),
+        });
+        result = await result.json();
+        if (result) {
+            props.getAPI();
+            props.setOpenDialog(false);
+        }
     };
+    return (
+        <View style={styles.modelContent}>
+            <TextInput
+                style={styles.input}
+                placeholder="Enter name"
+                value={name}
+                onChangeText={text => setName(text)}></TextInput>
+            <TextInput
+                style={styles.input}
+                placeholder="Enter birthday"
+                value={birthday}
+                onChangeText={text => setBirthday(text)}> </TextInput>
+
+            <View style={styles.buttonGroup}>
+                <TouchableOpacity style={styles.button} onPress={updateUser}>
+                    <Text style={styles.buttonText}>Update</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText} onPress={() => props.setOpenDialog(false)}>Close</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
+};
 
 export default ListUser;
