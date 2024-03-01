@@ -8,7 +8,7 @@ const ListUser = ({navigation}) => {
     const [selectedUser, setSelectedUser] = useState(undefined);
 
     const getAPI = async () => {
-        const url = 'http://192.168.1.5:3000/users'; // http://localhost:3000/users
+        const url = 'http://192.168.1.8:3000/users'; // http://localhost:3000/users
         let result = await fetch(url);
         result = await result.json();
         if (result) {
@@ -16,7 +16,7 @@ const ListUser = ({navigation}) => {
         }
     };
     const handleDelete = async id =>{
-        const url = 'http://192.168.1.5:3000/users';
+        const url = 'http://192.168.1.8:3000/users';
         let result = await fetch(`${url}/${id}` , {
             method: 'Delete',
         });
@@ -92,7 +92,7 @@ const UpdateModal = props => {
         }
     }, [props.selectedUser]);
     const updateUser = async () => {
-        const url = 'http://172.16.55.195:3000/user';
+        const url = 'http://192.168.1.8:3000/users';
         const id = props.selectedUser.id;
         let result = await fetch(`${url}/${id}`, {
             method: 'Put',

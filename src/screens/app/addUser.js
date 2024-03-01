@@ -7,7 +7,7 @@ const AddUser = () => {
     const [birthday, setBirthday] = useState(' ');
 
     const saveData = async () => {
-        const url = 'http://192.168.1.5:3000/users';
+        const url = 'http://192.168.1.8:3000/users';
         let result = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

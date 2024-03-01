@@ -26,7 +26,8 @@ const SignUp = ({navigation}) => {
                 <CheckBox checked={checked} onCheck={setChecked}></CheckBox>
                 <Text style={styles.checkText}>I agree with Terms & Privacy</Text>
             </View>
-            <Button style={styles.button} title="Sign Up" onPress={() => navigation.navigate('SignIn',{data:{email:sigEmail,pass:sigPass}})}></Button>
+            <Button style={styles.button} title="Sign Up" onPress={() =>
+                 navigation.navigate('SignIn',{data:{email:sigEmail,pass:sigPass}})}></Button>
             <Seperator text="Or sign up with"></Seperator>
             <GoogleLogin></GoogleLogin>
             <Text style={styles.footerText}>
