@@ -14,7 +14,7 @@ const GoogleLogin = () => {
             style={styles.container}>
                 <Image
                 style={styles.image}
-                source={require('../../assets/Google.png')}></Image>
+                source={require('../../assets/image/google.png')}></Image>
             </TouchableOpacity>
     );
 };

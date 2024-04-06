@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         marginTop: 10,
     },
     title: {
-        color: '#4F63AC',
+        color: 'black',
         fontSize: 26,
         fontWeight: '500',
         paddingHorizontal: 10,

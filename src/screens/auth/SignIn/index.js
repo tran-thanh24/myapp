@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import {Text, Image, View, Pressable} from 'react-native';
+import {Text, Image, View, Pressable, ScrollView} from 'react-native';
 import {styles} from './styles';
-import AuthHeader from '../../../components/AuthHeader';
 import Input from '../../../components/Input';
-import ListUser from '../../app/listUser';
-import Crud from '../../app/CRUD'
 import Button from '../../../components/Button';
 import Seperator from '../../../components/Seperator';
 import GoogleLogin from '../../../components/GoogleLogin';
@@ -17,7 +14,7 @@ const SignIn = ({navigation}) => {
 
     const handleSignIn = () => {
         if(data && data.email === email && data.pass === pass) {
-            navigation.navigate(Crud);
+            navigation.navigate('Tabs');
         }else{
             alert('Login Error');
         }
@@ -31,7 +28,11 @@ const SignIn = ({navigation}) => {
     }
     return (
         <View style= {styles.container}>
-            <AuthHeader title="Sign In" />
+            <Image style ={styles.banner}
+             source={require('../../../assets/image/banner.png')}/>
+            <View style={{width: '90%'}}>
+            <Text style={styles.welcome}>Chào Mừng bạn</Text>
+            <Text style={styles.line}>Đăng nhập tài khoản</Text>
             <Input label="Email" placeholder="example@gmail.com" changeText={setEmail} />
             <Input isPassword label="Password" placeholder="*********"  changeText={setPass}/>
             <Button style={styles.button} title="Sign In" onPress={handleSignIn}></Button>
@@ -48,6 +49,7 @@ const SignIn = ({navigation}) => {
                     Sign Up
                 </Text>
                 </Text>
+            </View>
         </View>
     );
 };

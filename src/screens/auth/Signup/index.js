@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Text, Image, View, Pressable} from 'react-native';
+import {Text, Image, View, Pressable, ScrollView} from 'react-native';
 import {styles} from './styles';
 import AuthHeader from '../../../components/AuthHeader';
 import Input from '../../../components/Input';
@@ -14,11 +14,15 @@ const SignUp = ({navigation}) => {
    const [sigPass,setSigPass] = useState(' ');
 
    const onSignIn = () => {
-    console.log('Test Sign in');
+        navigation.navigate('SignIn');
    };
     return (
         <View style= {styles.container}>
-            <AuthHeader title="Sign Up" />
+            <Image style ={styles.banner}
+            source={require('../../../assets/image/banner.png')}/>
+            <ScrollView style ={{width: '90%'}}>
+                <Text style ={styles.welcome}>Đăng Ký</Text>
+                <Text style ={styles.line}>Tạo tài khoản</Text>
             <Input label="Name" placeholder="Example John" />
             <Input label="Email" placeholder="example@gmail.com" changeText={setSigEmail}/>
             <Input isPassword label="Password" placeholder="*********" changeText={setSigPass}/>
@@ -37,6 +41,7 @@ const SignUp = ({navigation}) => {
                     Sign In
                 </Text>
             </Text>
+            </ScrollView>
         </View>
     );
 };
