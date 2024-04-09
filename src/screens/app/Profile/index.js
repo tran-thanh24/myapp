@@ -20,6 +20,10 @@ const Profile = () => {
                     <Text style={styles.profileName}>Trần Thành</Text>
                     <Text style={styles.profileDetail}>Email: thanhtcpd09575@fpt.edu.vn</Text>
                 </View>
+                <View style={styles.container}>
+                    <Text>Chung </Text>
+
+                </View>
         </SafeAreaView>
     );
 };

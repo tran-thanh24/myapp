@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity, Image, TextInput, FlatList, StyleSheet, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { treeData } from "../../../data/data";
+import { products, treeData } from "../../../data/data";
 import {styles} from './styles'
 
-const Search = () => {
+const Search = ({navigation}) => {
     const [search, setSearch] = useState('');
     const [showHistory, setShowHistory] = useState(true);
     const [history, setHistory] = useState([]);
@@ -84,19 +84,23 @@ const Search = () => {
                 </View>
             ): (
                 <FlatList
-                    data={treeData}
+                    data={products}
                     renderItem={({item})=>{
                         if(item.name.includes(search) && search.trim() !== ''){
                             return (
                                 <View style={styles.resultItem}>
+                                    <TouchableOpacity onPress={()=> {
+                                        navigation.navigate('product',{data: item})
+                                    }}>
                                     <Text>{item.name}</Text>
+                                    </TouchableOpacity>
                                 </View>
                             );
                         } else {
                             return null;
                         }
                     }}
-                    keyExtractor={(item) => item.id.toString()}
+                    keyExtractor={(item) => item._id.toString()}
                 />
             )}
         </SafeAreaView>

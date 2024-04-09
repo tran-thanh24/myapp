@@ -2,8 +2,25 @@ import React from "react";
 import { Image, ImageBackground, ScrollView, Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { styles } from './styles'; // Importing styles from a separate file
 import { SafeAreaView } from "react-native-safe-area-context";
+import ItemProductHome_Component from "../../../components/ItemProductHome_Component";
+import { products } from "../../../data/data";
 
-const Home = () => {
+const Home = ({ navigation }) => {
+
+    const renderItem = (type) => {
+
+        const listRender = products.filter(item => item.type == type)
+        console.log(listRender);
+
+        return listRender.map((item, i) => {
+            const { price, name, plantType, image } = item;
+            // console.log(price, name, plantType, image);
+            if (i >= 4) return
+            if (item.type == type) {
+                return <ItemProductHome_Component title={item.name} image={item.image[0]} key={i} navigation={navigation} data={item}/>
+            }
+        })
+    }
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -26,7 +43,7 @@ const Home = () => {
                                 source={require('../../../assets/image/background.png')}
                                 style={styles.imageBackground}
                             />
-                            <TouchableOpacity 
+                            <TouchableOpacity
                                 style={styles.showText}
                             >
                                 <Text style={styles.textImage}>Xem hàng mới về...</Text>
@@ -36,194 +53,34 @@ const Home = () => {
                 </View>
                 {/* list*/}
                 <View style={styles.containerList}>
-                    <Text style={styles.text}>Cây Trồng</Text>
                     <View style={styles.containerList}>
                         {/* First row */}
-                        <View style={styles.rowContainer}>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/1.png')}
-                                />
-                                <Text style={styles.itemText}>$10 - Pink Anthurium</Text>
-                            </View>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/2.png')}
-                                />
-                                <Text style={styles.itemText}>$15 - Black Love Anthurium</Text>
+                        <View >
+                            <Text style={styles.text}>Cây Trồng</Text>
+                            <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', justifyContent: 'space-around' }}>
+                                {renderItem('Cây Trồng')}
                             </View>
                         </View>
-                        {/* Second row */}
-                        <View style={styles.rowContainer}>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/3.png')}
-                                />
-                                <Text style={styles.itemText}>$20 - Grey Star Calarthea</Text>
-                            </View>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/4.png')}
-                                />
-                                <Text style={styles.itemText}>$25 - Banana Plant</Text>
-                            </View>
-                        </View>
-                        {/* third row */}
-                        <View style={styles.rowContainer}>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/5.png')}
-                                />
-                                <Text style={styles.itemText}>$20 - Song of India</Text>
-                            </View>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/6.png')}
-                                />
-                                <Text style={styles.itemText}>$25 - Sago Palm</Text>
-                            </View>
-                        </View>
-                        {/* forth row */}
-                        <View style={styles.rowContainer}>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/7.png')}
-                                />
-                                <Text style={styles.itemText}>$20 - Devil's Ivy</Text>
-                            </View>
-                            <View style={styles.itemContainer}>
-                                <Image
-                                    style={styles.itemImage}
-                                    source={require('../../../assets/image/20.png')}
-                                />
-                                <Text style={styles.itemText}>$25 - Spider Plant</Text>
-                            </View>
-                            
-                        </View>
-                        <Text style ={styles.textnew}>Xem thêm Cây Trồng</Text>
+                        <Text style={styles.textnew}>Xem thêm Cây Trồng</Text>
                         {/* List2 */}
-                        <View>
+                        <View >
                             <Text style={styles.text}>Chậu Cây Trồng</Text>
-                            <View style={styles.containerList}>
-                                {/* First row */}
-                                <View style={styles.rowContainer}>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/8.png')}
-                                        />
-                                        <Text style={styles.itemText}>$10 - Planta Trắng</Text>
-                                    </View>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/9.png')}
-                                        />
-                                        <Text style={styles.itemText}>$15 - Planta Lemon Balm</Text>
-                                    </View>
-                                </View>
-                                {/* Second row */}
-                                <View style={styles.rowContainer}>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/10.png')}
-                                        />
-                                        <Text style={styles.itemText}>$20 - Planta Rosewood</Text>
-                                    </View>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/11.png')}
-                                        />
-                                        <Text style={styles.itemText}>$25 - Planta Dove Grey</Text>
-                                    </View>
-                                </View>
-                                {/* third row */}
-                                <View style={styles.rowContainer}>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/12.png')}
-                                        />
-                                        <Text style={styles.itemText}>$20 - Planta Đen</Text>
-                                    </View>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/13.png')}
-                                        />
-                                        <Text style={styles.itemText}>$25 - Planta Matte Black</Text>
-                                    </View>
-                                </View>
+                            <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', justifyContent: 'space-around' }}>
+                                {renderItem('Chậu Cây')}
                             </View>
                         </View>
-                        <Text style ={styles.textnew}>Xem thêm Chậu Cây</Text>
+                        <Text style={styles.textnew}>Xem thêm Chậu Cây</Text>
                         {/* List3 */}
                         <View>
-                            <Text style={styles.text}>Phụ Kiện Chăm Sóc</Text>
                             <View style={styles.containerList}>
                                 {/* First row */}
-                                <View style={styles.rowContainer}>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/14.png')}
-                                        />
-                                        <Text style={styles.itemText}>$10 - Bình tưới Sierra nhỏ</Text>
-                                    </View>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/15.png')}
-                                        />
-                                        <Text style={styles.itemText}>$15 - Bình tưới Sierra lớn</Text>
-                                    </View>
-                                </View>
-                                {/* Second row */}
-                                <View style={styles.rowContainer}>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/16.png')}
-                                        />
-                                        <Text style={styles.itemText}>$20 - Bình tưới CB2 SAIC</Text>
-                                    </View>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/17.png')}
-                                        />
-                                        <Text style={styles.itemText}>$25 - Bình xịt Xiaoda</Text>
-                                    </View>
-                                </View>
-                                {/* third row */}
-                                <View style={styles.rowContainer}>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/18.png')}
-                                        />
-                                        <Text style={styles.itemText}>$20 - Bộ cuốc xẻng mini</Text>
-                                    </View>
-                                    <View style={styles.itemContainer}>
-                                        <Image
-                                            style={styles.itemImage}
-                                            source={require('../../../assets/image/19.png')}
-                                        />
-                                        <Text style={styles.itemText}>$25 - Giá đỡ Finn Terrazzo</Text>
-                                    </View>
-                                </View>
+                                <Text style={styles.text}>Chậu Cây Trồng</Text>
+                            <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', justifyContent: 'space-around' }}>
+                                {renderItem('Dụng cụ')}
+                            </View>
                             </View>
                         </View>
-                        <Text style ={styles.textnew}>Xem thêm Phụ Kiện</Text>
+                        <Text style={styles.textnew}>Xem thêm Phụ Kiện</Text>
                         <View>
                             <Text style={styles.text}>Combo Chăm Sóc (mới)</Text>
                         </View>

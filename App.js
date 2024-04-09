@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SignIn from "./src/screens/auth/SignIn";
 import SignUp from "./src/screens/auth/Signup";
+import Product from "./src/product";
 
 const HomeIcon = require('./src/assets/image/home.png');
 const NotificationIcon = require('./src/assets/image/bell.png');
@@ -60,7 +61,7 @@ const App = () => {
         <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}}/>
         <Stack.Screen name="SignUp" component={SignUp} options={{headerShown: false}}/>
         <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
-
+        <Stack.Screen name="product"  component={Product} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
