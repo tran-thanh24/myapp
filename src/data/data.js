@@ -15,7 +15,7 @@ export const products = [
     {
         _id: 1,
         name: "Pink Anthurium",
-        price: 10,
+        price: 200000,
         description: "Cây lá xanh mát rợp",
         image: [img, img, img, img,],
         type: "Cây Trồng",
@@ -26,7 +26,7 @@ export const products = [
     {
         _id: 2,
         name: "Black Love Anthurium",
-        price: 10,
+        price: 200000,
         description: "Cây lá xanh mát rợp",
         image: [img2, img, img, img,],
         type: "Cây Trồng",
@@ -37,7 +37,7 @@ export const products = [
     {
         _id: 3,
         name: "Grey Star Calarthea",
-        price: 10,
+        price: 200000,
         description: "Cây lá xanh mát rợp",
         image: [img3, img, img, img,],
         type: "Cây Trồng",
@@ -48,7 +48,7 @@ export const products = [
     {
         _id: 4,
         name: "Banana Plant",
-        price: 10,
+        price: 200000,
         description: "Cây lá xanh mát rợp",
         image: [img4, img, img, img,],
         type: "Cây Trồng",
@@ -59,7 +59,7 @@ export const products = [
     {
         _id: 9,
         name: "Planta Trắng",
-        price: 10,
+        price: 200000,
         description: "Chậu cây nhỏ nhắn",
         image: [img5, img, img, img,],
         type: "Chậu Cây",
@@ -70,7 +70,7 @@ export const products = [
     {
         _id: 10,
         name: "Planta Lemon Balm",
-        price: 10,
+        price: 200000,
         description: "Chậu cây nhỏ nhắn",
         image: [img6, img, img, img,],
         type: "Chậu Cây",
@@ -81,7 +81,7 @@ export const products = [
     {
         _id: 11,
         name: "Planta Rosewood",
-        price: 10,
+        price: 200000,
         description: "Chậu cây nhỏ nhắn",
         image: [img7, img, img, img,],
         type: "Chậu Cây",
@@ -92,7 +92,7 @@ export const products = [
     {
         _id: 12,
         name: "Planta Dove Grey",
-        price: 10,
+        price: 200000,
         description: "Chậu cây nhỏ nhắn",
         image: [img8, img, img, img,],
         type: "Chậu Cây",
@@ -103,7 +103,7 @@ export const products = [
     {
         _id: 15,
         name: "Bình tưới Sierra nhỏ",
-        price: 10,
+        price: 200000,
         description: "Dụng cụ làm vườn",
         image: [img9, img, img, img,],
         type: "Dụng cụ",
@@ -114,7 +114,7 @@ export const products = [
     {
         _id: 16,
         name: "Bình tưới Sierra lớn",
-        price: 10,
+        price: 200000,
         description: "Dụng cụ làm vườn",
         image: [img10, img, img, img,],
         type: "Dụng cụ",
@@ -125,7 +125,7 @@ export const products = [
     {
         _id: 17,
         name: "Bình tưới CB2 SAIC",
-        price: 10,
+        price: 200000,
         description: "Dụng cụ làm vườn",
         image: [img11, img, img, img,],
         type: "Dụng cụ",
@@ -136,7 +136,7 @@ export const products = [
     {
         _id: 18,
         name: "Bình xịt Xiaoda",
-        price: 10,
+        price: 200000,
         description: "Dụng cụ làm vườn",
         image: [img12, img, img, img,],
         type: "Dụng cụ",

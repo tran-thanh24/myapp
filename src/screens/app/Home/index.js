@@ -10,7 +10,7 @@ const Home = ({ navigation }) => {
     const renderItem = (type) => {
 
         const listRender = products.filter(item => item.type == type)
-        console.log(listRender);
+        // console.log(listRender);
 
         return listRender.map((item, i) => {
             const { price, name, plantType, image } = item;
@@ -28,10 +28,13 @@ const Home = ({ navigation }) => {
                     {/* Text and Cart Image */}
                     <View style={styles.textAndCartContainer}>
                         <Text style={styles.textLine}>Planta - tỏa sáng</Text>
+                        <TouchableOpacity onPress={() => {navigation.navigate('cart')}}>
                         <Image
                             style={styles.imageCart}
                             source={require('../../../assets/image/shopping-cart.png')}
+                            
                         />
+                        </TouchableOpacity>
                     </View>
                     {/* Remaining Content */}
                     <View>

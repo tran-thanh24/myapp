@@ -2,12 +2,20 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from './styles'
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItem } from "../redux/selector";
+import uuid from 'react-native-uuid';
+import { shopingCartSlice } from "../redux/shopingCartSlice/shopingCartSlice";
 
 const Product = ({ navigation, route }) => {
     const { data } = route.params;
-    console.log(data);
-    const [quantity, setQuantity] = useState(0);
+    // console.log(data);
+    const [quantity, setQuantity] = useState(1);
     const [price, setprice] = useState(0);
+
+    const dispatch = useDispatch()
+    const listCart = useSelector(selectCartItem);
+
     const incrementQuantity = () => {
         setQuantity(quantity + 1);
     };
@@ -18,6 +26,19 @@ const Product = ({ navigation, route }) => {
         }
     };
 
+    useEffect(() => {
+        console.log(listCart);
+    }, [listCart])
+
+    const addItemCart = () => {
+        const Cart = {
+            id: uuid.v4(),
+            product: data,
+            quantity: quantity,
+            status: false 
+        }
+        dispatch(shopingCartSlice.actions.addCart(Cart))
+    }
     useEffect(() => {
         setprice(quantity * data.price)
     }, [quantity])
@@ -31,7 +52,7 @@ const Product = ({ navigation, route }) => {
                     <Image source={require('../assets/image/back.png')} style={styles.leftIcon} />
                 </TouchableOpacity>
                 <Text style={styles.title}>{data.name}</Text>
-                <TouchableOpacity style={styles.rightContainer} onPress={() => { }}>
+                <TouchableOpacity style={styles.rightContainer} onPress={() => {navigation.navigate('cart')}}>
                     <Image source={require('../assets/image/shopping-cart.png')} />
                 </TouchableOpacity>
             </View>
@@ -80,7 +101,10 @@ const Product = ({ navigation, route }) => {
 
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
-                    <TouchableOpacity style={styles.addToCartButton} onPress={() => { }}>
+                    <TouchableOpacity style={styles.addToCartButton} onPress={() => {
+                        addItemCart();
+                        navigation.navigate('cart');                   
+                    }}>
                         <Text style={styles.addToCartButtonText}>Thêm vào giỏ hàng</Text>
                     </TouchableOpacity>
                 </View>

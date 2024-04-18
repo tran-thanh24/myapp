@@ -49,9 +49,14 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  
+
   profileDetail: {
     fontSize: 16,
     marginBottom: 5,
   },
+  ListProfile:{
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  
 });
