@@ -31,5 +31,17 @@ export const styles = StyleSheet.create({
   newText:{
     textAlign: 'center',
     paddingTop: 10
-  }
+  },
+  itemContainer: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#CCCCCC'
+  },
+  messageText: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  dateText: {
+    color: '#666666',
+  },
 });

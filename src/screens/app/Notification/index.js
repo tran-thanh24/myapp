@@ -18,15 +18,15 @@ const Notification = () => {
                 <Text style={styles.textLine}>Thông Báo</Text>
                 <View style={styles.rightContainer} />
             </View>
-            <View>
+            <View style={styles.itemContainer}>
             {
                listNotification.length > 0 ? <FlatList 
                 data={listNotification}
                 renderItem={(item,index) => <Pressable>
-                    <Text>{item.item.message}</Text>
-                    <Text>{item.item.date.toString()}</Text>
+                    <Text style={styles.messageText} >{item.item.message}</Text>
+                    <Text style={styles.dateText} >{item.item.date.toString()}</Text>
                 </Pressable>}
-               /> : <Text>Chưa có thông bao </Text>
+               /> : <Text style={styles.newText}>Chưa có thông báo </Text>
             }
           </View>
         </SafeAreaView>
